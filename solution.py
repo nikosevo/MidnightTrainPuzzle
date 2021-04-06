@@ -1,3 +1,5 @@
-var = "Νικοσ ειναι γκειιιιιι"
+var = "Νικοσ ειναι γκειιιιιι hahaha poly asteio"
 print(var)
-print("peos")
+var = 1000
+print("peos"+ var)
+
