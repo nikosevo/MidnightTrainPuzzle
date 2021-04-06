@@ -1,35 +1,29 @@
-#start with the class and the basic elements that we will need in order to make this work.
-class Person:
-    def __init__(self, name, timetotravel,crossed):
-        self.name = name
-        self.timetotravel = timetotravel
-        self.crossed = crossed
-    def __str__(self):
-        return self.name , self.timetotravel , self.crossed
-NumOfPersons = 5
-listOfPersons = []
-flashlight_side = False
+#start with the class and a two way constructor one for the starting node and one for the other nodes
+class Node:
+    def __init__(self, state, args,action,totalcost,totaldepth):
+        if isinstance(args,Node):
+            self.state = state
+            self.args = Node
+            self.action = action
+            self.totalcost = totalcost
+            self.totaldepth = totaldepth
+        if args == None:
+            self.state = state
+            self.args = None
+            self.action = action
+            self.totalcost = totalcost
+            self.totaldepth = totaldepth
+            
 
-def printlist(): #simple function to print the list
-    for i in range(0,len(listOfPersons)):
-        print(listOfPersons.__getitem__(i).__str__())
+#This can be changed later as to how we will calculate the cost and the depth
+prevcost=0
+newcost=0
+prevdepth=0
+newdepth=0
 
+#initialized states later to be made by a def function
+startingstate=[["A",2,False],["A1",3,False]]
+action=[["A",2,False],["A1",3,True]]
 
-def Fill_List_With_Persons():   #this will need to take as a parameter the users intput 
-    for i in range(0 , NumOfPersons):
-        tempname = "A" + str(i+1)
-        newPerson = Person(tempname, i+2,False)
-        listOfPersons.append(newPerson)
-
-Fill_List_With_Persons()
-printlist
-
-#cross to the good side
-#take two persons and cross them with the flashlight
-#listOfPersons.__getitem__(firnum).crossed=True
-#listOfPersons.__getitem__(secnum).crossed=True
-flashlight_side = True
-printlist
-#print(max(3,0))
-#add time to the total time
-
+startignNode = Node(startingstate,None,action,prevcost+newcost,prevdepth+newdepth)
+print(startignNode)
