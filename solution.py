@@ -1,2 +1,2 @@
-var = "Νικοσ ειναι γκειιιιιι"
+var = "Νικοσ ειναι γκειιιιιι hahaha poly asteio"
 print(var)
