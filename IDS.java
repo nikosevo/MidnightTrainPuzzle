@@ -4,7 +4,7 @@ import java.util.LinkedList;
 public class IDS
 {   //We create an object of the IDS algorithm using the elements that we need to
     //check and make some functions operate properly.
-    public IDS(AlgoHandler algo, LinkedList<Node> treeNode, boolean state[], int costs[], boolean Goal[], int createdNodesnum, int visits)
+    public IDS(AlgoHandler algo, LinkedList<Node> treeNode, boolean state[], int costs[], boolean Goal[], int createdNodesnum, int visited)
     {   
         int searchDepth = 0; //we initialize our searchDepth to zero to represent the root number
         for (int j = 0; j <= searchDepth; j++, searchDepth++)
@@ -14,8 +14,8 @@ public class IDS
 
             while (!treeNode.isEmpty()) //to check if the tree is empty
             {
-                visits++;
-                System.out.println("\n" + visits);
+                visited++;
+                System.out.println("\n" + visited);
 
                 Node node = treeNode.getFirst();  //we copy the first node of the tree 
 
@@ -39,11 +39,11 @@ public class IDS
 
                 } else
                 {
-                    algo.printOutput(node, "IDS found a result in the search");
+                    algo.printOutput(node, "IDS found a result in the search",visited);
                     return;
                 }
             }
-            treeNode.clear();
+            treeNode.clear();s
         }
     }
 }

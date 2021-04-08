@@ -66,10 +66,10 @@ public class AlgoHandler
     }
 
 
-  public  void printOutput(Node node, String algorithName) {
+  public  void printOutput(Node node, String algorithName,int visited) {
         System.out.println("\n" + algorithName + " found a solution to the problem!");
         System.out.println("The final cost is " + node.getTotalCost() + " minutes.");
-        System.out.println("The nodes created were " + node.getNodesCreated() + ", with " + visits
+        System.out.println("The nodes created were " + node.getNodesCreated() + ", with " + visited
                 + " of them being visited.\n");
 
         ArrayList<String> output = new ArrayList<>();

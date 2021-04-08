@@ -41,7 +41,7 @@ public class UCS
                 }
             } else
             {
-                algo.printOutput(node, "UCS");
+                algo.printOutput(node, "UCS",visited);
                 return;
             }
         }
