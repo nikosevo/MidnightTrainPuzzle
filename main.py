@@ -35,7 +35,7 @@ class Node:
                             requiredTime = costs[i]
                         else:
                             requiredTime = costs[j]
-                        newState.add(Node(str(i," ",j),self,newState,self.deapth,self.cost + requiredTime))
+                        newState.add(Node(str(i," ",j),self,newState,self.depth,self.cost + requiredTime))
         else: #which mean the torch is in the right side
             for i in range(0,state.length -1):
                 if (self.state[i] == 1):
@@ -52,9 +52,9 @@ class Node:
         return self.parent
     @property
     def getChildNode(self):
-        return self.child
+        return self.children
     @property
-    def getDeapth(self):
+    def getDepth(self):
         return self.depth
     @property 
     def getCost(self):
@@ -94,7 +94,7 @@ def Ucs():
         print("node " , tempNode.name , " depth " , tempNode.depth)
         if tempNode.state != finalState:
             tempNode.newChildren()
-            for i in range( : node.children):
+            for i in range( : getChildNode()):
                 treeNode.add(new Node) #this needs to be added to the end of the list
         else :
             print("UCS ENDED")
