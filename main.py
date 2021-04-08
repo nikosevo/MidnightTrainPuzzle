@@ -23,8 +23,8 @@ class Node:
     @property
     def newChildren(self):
         if state[-1] == False: #which mean the torch is in the left side
-            for i in range(0,state.length -1):
-                for j in range(i+1,state.length -1):
+            for i in range(0,len(state)-1):
+                for j in range(i+1,len(state)-1):
                     if(self.state[i] == 0 and self.state[j] == 0): #all pairs but only in the left side
                         newState = state
                         newState[i] = True
@@ -78,16 +78,18 @@ def askUserForInputs():
 
 ############## UCS ALGO #########################
 def Ucs():
-    treeNode.add( Node("Starting",None,state,0,0))
+    visits = 0
+    treeNode.append(Node("Starting",None,state,0,0))
     while treeNode !=None:
-        visits= visits+1
+        visits=visits+1
         print(visits)
 
         minCostNode = Node(None,None,None,None,0)
-        mincost=0 #this will need to become as big as possible Max_Value
-        for i in range(treeNode.size()):
-            if treeNode[i].getCost() <= minCost:
-                minCost = treeNode[i].getCost()
+        mincost = 99999
+        for i in range(0,len(treeNode)):
+            tempNode = treeNode[i]
+            if tempNode.getCost() <= minCost:
+                minCost = tempNode.getCost()
                 minCostNode = treeNode[i]
         
         tempNode = minCostNode
@@ -103,3 +105,11 @@ def Ucs():
 ######################################################
 
 
+
+costs = {1,3,6}
+state = {False,False,False,False}
+finalState = {True,True,True,True}
+
+
+Ucs()
+>>>>>>> f1b57722827a6c7e53f750fdb1f75c93e68100a4
