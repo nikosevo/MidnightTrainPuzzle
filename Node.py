@@ -1,7 +1,7 @@
 
 class Node:
     
-    def __init__(self,name, parent=None, state, deapth,cost):
+    def __init__(self,name, parent=None, state, depth,cost):
         self.name = name
         self.parent = parent
         self.state = state
