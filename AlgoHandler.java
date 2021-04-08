@@ -12,8 +12,6 @@ public class AlgoHandler
     private boolean Goal[];
     
     private int createdNodesnum;
-    private int visits;
-
     public int[] getCrossingTime;
 
     public AlgoHandler()
@@ -39,8 +37,6 @@ public class AlgoHandler
 
         treeNode = new LinkedList<>();
         this.createdNodesnum = 0;
-
-        this.visits = 0;
 
         this.Goal = new boolean[state.length];
         Arrays.fill(this.Goal, true);
