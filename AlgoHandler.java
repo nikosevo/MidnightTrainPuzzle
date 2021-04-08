@@ -14,6 +14,8 @@ public class AlgoHandler
     int createdNodesnum;
     int visits;
 
+    public int[] getCrossingTime;
+
     public AlgoHandler()
     {
         Scanner sc = new Scanner(System.in);

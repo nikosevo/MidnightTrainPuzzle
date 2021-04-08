@@ -1,10 +1,13 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
  
 public class UCS
 {
+
     public UCS(AlgoHandler algo, LinkedList<Node> treeNode,boolean state[], int costs[], boolean Goal[], int createdNodesnum, int visits)
     {
-        treeNode.add(new Node("startingNode", this, null, state, 0, 0));
+
+        treeNode.add(new Node("head",state,0,0,null,algo));
 
         while (!treeNode.isEmpty())
 
@@ -16,15 +19,15 @@ public class UCS
             int minCost = Integer.MAX_VALUE;
             for (int i = 0; i < treeNode.size(); i++)
             {
-                if (treeNode.get(i).getCost() < minCost)
+                if (treeNode.get(i).getTotalCost() < minCost)
                 {
-                    minCost = treeNode.get(i).getCost();
+                    minCost = treeNode.get(i).getTotalCost();
                     minCostNode = treeNode.get(i);
                 }
             }
             Node node = minCostNode;
             System.out.println();
-            System.out.println("node " + node.getName() + " depth: " + node.getDepth());
+            System.out.println("node " + node.getId() + " depth: " + node.getDepth());
             treeNode.remove(node);
 
             if (!node.checkFiniteState())
