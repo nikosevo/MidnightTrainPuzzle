@@ -1,12 +1,17 @@
 costs = {}
 state = {}
 finalState = {}
+
+visits=0
+createdNodesNum=0
+
+treeNode = []
 class Node:
-    def __init__(self,name,parent,state,deapth,cost):
+    def __init__(self,name,parent,state,depth,cost):
         self.name = name
         self.parent = parent
         self.state = state
-        self.deapth = deapth
+        self.depth = depth
         self.cost = cost
         self.children = {}
     
@@ -40,7 +45,7 @@ class Node:
 
                     requiredTime = costs[i]
 
-                    newState.add(Node(str(i," ",self,newState,self.deapth,self.cost)))
+                    newState.add(Node(str(i," ",self,newState,self.depth,self.cost)))
         
     @property
     def getParentNode(self):
@@ -50,7 +55,7 @@ class Node:
         return self.child
     @property
     def getDeapth(self):
-        return self.deapth
+        return self.depth
     @property 
     def getCost(self):
         return self.cost
@@ -70,3 +75,27 @@ def askUserForInputs():
 
     for i in range(0,numOfPeople + 1):
         finalState[i] = True
+
+############## UCS ALGO #########################
+def Ucs():
+    treeNode.add(NewNode = Node("Starting",None,state,0,0))
+    while treeNode !=None:
+        visits= visits+1
+        print(visits)
+
+        minCostNode = Node(None,None,None,None,0)
+        mincost=0 #this will need to become as big as possible Max_Value
+        for i in range(treeNode.size()):
+            if treeNode[i].getCost() <= minCost:
+                minCost = treeNode[i].getCost()
+                minCostNode = treeNode[i]
+        
+        tempNode = minCostNode
+        print("node " , tempNode.name , " depth " , tempNode.depth)
+        if tempNode.state != finalState:
+            tempNode.newChildren()
+            for i in range( : node.children):
+                treeNode.add(new Node) #this needs to be added to the end of the list
+        else :
+            print("UCS ENDED")
+######################################################

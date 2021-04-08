@@ -1,7 +1,7 @@
 def printResults(Node node , AlgoName):
     print(AlgoName , " solved the puzzle")
     print("Total cost : " ,node.getCost())
-    print("The nodes created were " , createdNodesCounter , ", with " , visits , " of them being visited.")
+    print("The nodes created were " , createdNodesNum , ", with " , visits , " of them being visited.")
 
     output = []
     while node.depth != 0:
@@ -13,4 +13,4 @@ def printResults(Node node , AlgoName):
 
             output.add(s)
         node = node.parent
-   print(output)
+   print(output  )
