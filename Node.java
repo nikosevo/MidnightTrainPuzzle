@@ -107,10 +107,10 @@ public class Node {
 
     // returns the slowest out of 2 people
     private int findTotalCostOfChild(int i, int j) {
-        if (handler.getCrossingTime[i] > handler.getCrossingTime[j])
-            return totalCost + handler.getCrossingTime[i];
+        if (handler.getCrossingTime(i) > handler.getCrossingTime(j))
+            return totalCost + handler.getCrossingTime(i);
 
-        return totalCost + handler.getCrossingTime[j];
+        return totalCost + handler.getCrossingTime(j);
     }
 
     public Node getParentNode() {
