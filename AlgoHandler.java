@@ -75,7 +75,7 @@ public class AlgoHandler
 
         while (node.getDepth() != 0) {
             if (node.getId().length() > 1) {
-                String s = "A" + node.getId().charAt(0) + " and A" + node.getId().charAt(1)
+                String s = "A" + node.getId().charAt(0) + " and A" + node.getId().charAt(2)
                         + " crossed the bridge in " + (node.getTotalCost() - node.getParentNode().getTotalCost()) + " minute(s)";
 
                 output.add(s);
