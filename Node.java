@@ -67,7 +67,8 @@ public class Node {
                         String idOfChild = i + " " + j;
 
                         // now that we have everything needed, we create the new child
-                        // and add it to the subtree list
+                        // and add it to the subtree list and increase the counter 
+                        nodesCreated++;
 
                         subTree.add(
                                 new Node(idOfChild, stateOfTheChild, depth + 1, totalCostOfTheChild, this, handler));
@@ -96,7 +97,7 @@ public class Node {
 
                     // the id of the child node will be the person who crossed so:
                     String idOfChild = i + "";
-
+                    nodesCreated++;
                     subTree.add(new Node(idOfChild, stateOfTheChild, depth + 1, totalCostOfTheChild, this, handler));
 
                 }
@@ -113,25 +114,12 @@ public class Node {
         return totalCost + handler.getCrossingTime(j);
     }
 
-    public Node getParentNode() {
-        return parent;
-    }
-
-    public ArrayList<Node> getSubTree() {
-        return subTree;
-    }
-
-    public int getDepth() {
-        return depth;
-    }
-
-    public int getTotalCost() {
-        return totalCost;
-    }
-
-    public String getId() {
-        return id;
-    }
+    public Node getParentNode() {return parent;}
+    public ArrayList<Node> getSubTree() {return subTree;}
+    public int getDepth() {return depth;}
+    public int getTotalCost() {return totalCost;}
+    public String getId() {return id;}
     public boolean[] getState() {return state;}
+    public int getNodesCreated(){return nodesCreated;}
     
 }
