@@ -52,7 +52,7 @@ class Node:
         return self.parent
     @property
     def getChildNode(self):
-        return self.child
+        return self.children
     @property
     def getDeapth(self):
         return self.depth
@@ -78,7 +78,7 @@ def askUserForInputs():
 
 ############## UCS ALGO #########################
 def Ucs():
-    treeNode.add(NewNode = Node("Starting",None,state,0,0))
+    treeNode.add( Node("Starting",None,state,0,0))
     while treeNode !=None:
         visits= visits+1
         print(visits)
@@ -94,8 +94,8 @@ def Ucs():
         print("node " , tempNode.name , " depth " , tempNode.depth)
         if tempNode.state != finalState:
             tempNode.newChildren()
-            for i in range( : node.children):
-                treeNode.add(new Node) #this needs to be added to the end of the list
+            for childNode in tempNode.getChildNode():
+                treeNode.add(childNode) #this needs to be added to the end of the list
         else :
             print("UCS ENDED")
 ######################################################
