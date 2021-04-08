@@ -46,5 +46,5 @@ public class UCS
             }
         }
     }
-    public int getVisits(){return visits;}
+    public int getVisits(){return visited;}
 }
