@@ -20,4 +20,5 @@ currentState =  {False,False,False}
 costs =         {  1,    3,    6}
 
 nodes_created = 0
-nodes_visited = 2
+nodes_visited = 0
+
