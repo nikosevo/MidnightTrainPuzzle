@@ -1,23 +1,24 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
  
 public class UCS
 {
-
+    //Basically we create a constructor with all the elements that we need in order to run the algorithm we also need to
+    //parse a parameter with the type AlgoHandler so that we can run certain functions and checks to avoid static usage
     public UCS(AlgoHandler algo, LinkedList<Node> treeNode,boolean state[], int costs[], boolean Goal[], int createdNodesnum, int visits)
     {
-
+        //we create the root node and add it to our tree of seach
         treeNode.add(new Node("head",state,0,0,null,algo));
 
-        while (!treeNode.isEmpty())
+        while (!treeNode.isEmpty())  //initial check so that we know that the tree is not empty
 
         {
-            visits++;
+            visits++; //increment the number of visits by one
             System.out.println("\n" + visits);
 
-            Node minCostNode = null;
+            Node minCostNode = null;   //we create new node with all the values set to zero
             int minCost = Integer.MAX_VALUE;
-            for (int i = 0; i < treeNode.size(); i++)
+            for (int i = 0; i < treeNode.size(); i++)  //check for the whole tree to get for the current root the total cost and set it to minimum
             {
                 if (treeNode.get(i).getTotalCost() < minCost)
                 {
@@ -25,16 +26,16 @@ public class UCS
                     minCostNode = treeNode.get(i);
                 }
             }
-            Node node = minCostNode;
+            Node node = minCostNode;            
             System.out.println();
             System.out.println("node " + node.getId() + " depth: " + node.getDepth());
             treeNode.remove(node);
 
-            if (!node.checkFiniteState())
+            if (!Arrays.equals(node.getState(), algo.Goal))
             {
-                node.createChildren();
+                node.newChild();
 
-                for (Node childNode : node.getChildren())
+                for (Node childNode : node.getSubTree())
                 {
                     treeNode.addLast(childNode);
                 }

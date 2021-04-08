@@ -33,7 +33,7 @@ public class AlgoHandler
             costs[i] = sc.nextInt();
         }
 
-        System.out.println("Please choose which algorithm you would like to run: \n1) BFS\n2) DFS\n3) UCS\n4) IDS");
+        System.out.println("Please choose which algorithm you would like to run: \n1) UCS\n2) IDS\n3) BFS\n4) A*");
         int algorithm = sc.nextInt();
 
 
@@ -47,7 +47,7 @@ public class AlgoHandler
         if (algorithm == 1)
         {
             System.out.println("UCS");
-            UCS ucsalgo = new UCS(new AlgoHandler(),treeNode,state,costs,Goal,createdNodesnum,visits);
+            UCS ucsalgo = new UCS(this,treeNode,state,costs,Goal,createdNodesnum,visits);
         } else if (algorithm == 2)
         {
             System.out.println("2");
@@ -66,21 +66,21 @@ public class AlgoHandler
 
   public  void printOutput(Node node, String algorithName) {
         System.out.println("\n" + algorithName + " found a solution to the problem!");
-        System.out.println("The final cost is " + node.getCost() + " minutes.");
+        System.out.println("The final cost is " + node.getTotalCost() + " minutes.");
         System.out.println("The nodes created were " + createdNodesnum + ", with " + visits
                 + " of them being visited.\n");
 
         ArrayList<String> output = new ArrayList<>();
 
         while (node.getDepth() != 0) {
-            if (node.getName().length() > 1) {
-                String s = "A" + node.getName().charAt(0) + " and A" + node.getName().charAt(1)
-                        + " crossed the bridge in " + (node.getCost() - node.getParentNode().getCost()) + " minute(s)";
+            if (node.getId().length() > 1) {
+                String s = "A" + node.getId().charAt(0) + " and A" + node.getId().charAt(1)
+                        + " crossed the bridge in " + (node.getTotalCost() - node.getParentNode().getTotalCost()) + " minute(s)";
 
                 output.add(s);
             } else {
-                String s = "A" + node.getName() + " returns back in "
-                        + (node.getCost() - node.getParentNode().getCost()) + " minute(s)";
+                String s = "A" + node.getId() + " returns back in "
+                        + (node.getTotalCost() - node.getParentNode().getTotalCost()) + " minute(s)";
 
                 output.add(s);
             }
