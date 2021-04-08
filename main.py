@@ -85,11 +85,11 @@ def Ucs():
         print(visits)
 
         minCostNode = Node(None,None,None,None,0)
-        mincost = 99999
+        minCost = 99999
         for i in range(0,len(treeNode)):
             tempNode = treeNode[i]
-            if tempNode.getCost() <= minCost:
-                minCost = tempNode.getCost()
+            if tempNode.cost <= minCost:
+                minCost = tempNode.cost
                 minCostNode = treeNode[i]
         
         tempNode = minCostNode
@@ -112,4 +112,4 @@ finalState = {True,True,True,True}
 
 
 Ucs()
->>>>>>> f1b57722827a6c7e53f750fdb1f75c93e68100a4
+
