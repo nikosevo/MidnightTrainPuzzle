@@ -5,14 +5,14 @@ import java.util.Scanner;
  
 public class AlgoHandler
 {
-     LinkedList<Node> treeNode;
+    private LinkedList<Node> treeNode;
 
-    boolean state[];
-    int costs[];
-    boolean Goal[];
+    private boolean state[];
+    private int costs[];
+    private boolean Goal[];
     
-    int createdNodesnum;
-    int visits;
+    private int createdNodesnum;
+    private int visits;
 
     public int[] getCrossingTime;
 
@@ -47,7 +47,8 @@ public class AlgoHandler
         if (algorithm == 1)
         {
             System.out.println("UCS");
-            UCS ucsalgo = new UCS(this,treeNode,state,costs,Goal,createdNodesnum,visits);
+            UCS ucsalgo = new UCS(this,treeNode,state,costs,Goal,createdNodesnum);
+            visits = ucsalgo.getVisits();
         } else if (algorithm == 2)
         {
             System.out.println("2");
@@ -68,7 +69,7 @@ public class AlgoHandler
   public  void printOutput(Node node, String algorithName) {
         System.out.println("\n" + algorithName + " found a solution to the problem!");
         System.out.println("The final cost is " + node.getTotalCost() + " minutes.");
-        System.out.println("The nodes created were " + createdNodesnum + ", with " + visits
+        System.out.println("The nodes created were " + node.getNodesCreated() + ", with " + visits
                 + " of them being visited.\n");
 
         ArrayList<String> output = new ArrayList<>();
@@ -109,6 +110,9 @@ public class AlgoHandler
 
     public void incrementCreatedNodesCounter() {
         createdNodesnum++;
+    }
+    public boolean[] getGoal(){
+        return Goal;
     }
     
 }
