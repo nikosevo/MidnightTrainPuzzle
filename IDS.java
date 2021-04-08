@@ -22,7 +22,7 @@ public class IDS
                 System.out.println("node " + node.getId() + " depth: " + node.getDepth());
                 treeNode.removeFirst();     //we remove the first node from the tree
 
-                if (!Arrays.equals(node.getState(), algo.Goal))  //we check if the node that we took is the goal one 
+                if (!Arrays.equals(node.getState(), algo.getGoal()))  //we check if the node that we took is the goal one 
                 {
                     //we check if the depth is equal or less to the current search depth if it is we create a new child node
                     //because this means that we have reach out maximun number of nodes for this depth and we need to go deeper
