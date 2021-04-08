@@ -39,6 +39,7 @@ public class AlgoHandler
 
         treeNode = new LinkedList<>();
         this.createdNodesnum = 0;
+
         this.visits = 0;
 
         this.Goal = new boolean[state.length];
@@ -47,12 +48,11 @@ public class AlgoHandler
         if (algorithm == 1)
         {
             System.out.println("UCS");
-            UCS ucsalgo = new UCS(this,treeNode,state,costs,Goal,createdNodesnum);
-            visits = ucsalgo.getVisits();
+            new UCS(this,treeNode,state,costs,Goal,createdNodesnum);
         } else if (algorithm == 2)
         {
             System.out.println("2");
-            IDS idsalgo = new IDS(this,treeNode,state,costs,Goal,createdNodesnum,visits);
+            new IDS(this,treeNode,state,costs,Goal,createdNodesnum);
         } else if (algorithm == 3)
         {
             System.out.println("3");

@@ -4,7 +4,8 @@ import java.util.LinkedList;
 public class IDS
 {   //We create an object of the IDS algorithm using the elements that we need to
     //check and make some functions operate properly.
-    public IDS(AlgoHandler algo, LinkedList<Node> treeNode, boolean state[], int costs[], boolean Goal[], int createdNodesnum, int visited)
+    int visited = 0;
+    public IDS(AlgoHandler algo, LinkedList<Node> treeNode, boolean state[], int costs[], boolean Goal[], int createdNodesnum)
     {   
         int searchDepth = 0; //we initialize our searchDepth to zero to represent the root number
         for (int j = 0; j <= searchDepth; j++, searchDepth++)
