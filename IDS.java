@@ -43,7 +43,7 @@ public class IDS
                     return;
                 }
             }
-            treeNode.clear();s
+            treeNode.clear();
         }
     }
 }
