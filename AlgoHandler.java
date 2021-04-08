@@ -51,6 +51,7 @@ public class AlgoHandler
         } else if (algorithm == 2)
         {
             System.out.println("2");
+            IDS idsalgo = new IDS(this,treeNode,state,costs,Goal,createdNodesnum,visits);
         } else if (algorithm == 3)
         {
             System.out.println("3");
