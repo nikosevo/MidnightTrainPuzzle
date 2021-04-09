@@ -6,7 +6,7 @@ import java.util.Scanner;
 //this is where we handle all the algorytms and user inputs
 public class AlgoHandler
 {
-    private LinkedList<Node> treeNode;
+    private LinkedList<Node> queue ;
 
     // state is an array of boolean that show where each object is located
     //false means that the object is in the right side of the bridge and true on the left
@@ -36,7 +36,7 @@ public class AlgoHandler
         int algorithm = sc.nextInt();
 
         //we use linked list since we dont care about choosing a specific node at any point
-        treeNode = new LinkedList<>();
+        queue = new LinkedList<>();
 
         //and we set the goal now since we now know how many people should be
         this.Goal = new boolean[state.length];
@@ -45,17 +45,20 @@ public class AlgoHandler
         if (algorithm == 1)
         {
             System.out.println("UCS");
-            new UCS(this,treeNode,state,costs,Goal);
+            new UCS(this,queue,state,costs,Goal);
         } else if (algorithm == 2)
         {
-            System.out.println("2");
-            new IDS(this,treeNode,state,costs,Goal);
+            System.out.println("IDS");
+            new IDS(this,queue,state,costs,Goal);
         } else if (algorithm == 3)
         {
-            System.out.println("3");
+            System.out.println("BFs");
+            new BFS(this,queue,state,costs,Goal);
+
         } else if (algorithm == 4)
         {
-            System.out.println("4");
+            System.out.println("A*");
+            new Astar(this,queue,state,costs,Goal);
         } else System.out.println("Wrong input.\nTerminating the program.");
 
 
