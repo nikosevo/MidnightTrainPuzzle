@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Node {
     private static int nodesCreated = 0;
@@ -14,16 +13,43 @@ public class Node {
     private int stateLen;
     private int depth;
     private int totalCost; // this is the total cost from the head node until here
+    private int totalHeuristicCost;
 
-    public Node(String id, boolean state[], int depth, int totalCost, Node parent, AlgoHandler handler) {
+    public Node(String id, boolean state[], int depth, int totalCost, int totalHeuristicCost,  Node parent, AlgoHandler handler) {
         this.id = id;
         this.state = state;
         this.stateLen = state.length;
         this.depth = depth;
         this.totalCost = totalCost;
+        this.totalHeuristicCost = totalHeuristicCost;
         this.parent = parent;
         this.handler = handler;
         nodesCreated++;
+        //if the node we are looking is the head node then we stop the constructor
+        if(id.charAt(0) == 'h') 
+            return;
+        //here we calculate the heuristic cost of the the node 
+        //when only one person crosses the bridge then the heuristic is equal to the cost
+        if(id.length() <= 1){
+            //we convert the id to int so we can look up his crossing time
+            int person = Character.getNumericValue(id.charAt(0));
+            this.totalHeuristicCost = totalHeuristicCost + handler.getCrossingTime(person);
+        }else{
+            System.out.println("id");
+            System.out.println(id);
+            System.out.println(id.length());
+            //now if 2 people are crossing the bridge the heuristic must be calculated differently
+            //when for example 2 people cross together the more the difference between their time increases the more wasted time (for the faster one) increases
+            //so we are gonna calculate the heuristic value based on the difference in the people crossing time
+            int person1 = Character.getNumericValue(id.charAt(0));
+            int person2 = Character.getNumericValue(id.charAt(2));
+
+            int person1CrossTime = handler.getCrossingTime(person1);
+            int person2CrossTime = handler.getCrossingTime(person2);
+
+            this.totalHeuristicCost = totalHeuristicCost + Math.abs(person1CrossTime - person2CrossTime);
+
+        }
     }
 
     public void newChild() {
@@ -71,7 +97,7 @@ public class Node {
                         nodesCreated++;
 
                         subTree.add(
-                                new Node(idOfChild, stateOfTheChild, depth + 1, totalCostOfTheChild, this, handler));
+                                new Node(idOfChild, stateOfTheChild, depth + 1, totalCostOfTheChild, totalHeuristicCost, this, handler));
                     }
                 }
             }
@@ -98,7 +124,7 @@ public class Node {
                     // the id of the child node will be the person who crossed so:
                     String idOfChild = i + "";
                     nodesCreated++;
-                    subTree.add(new Node(idOfChild, stateOfTheChild, depth + 1, totalCostOfTheChild, this, handler));
+                    subTree.add(new Node(idOfChild, stateOfTheChild, depth + 1, totalCostOfTheChild,totalHeuristicCost,this, handler));
 
                 }
             }
@@ -121,5 +147,6 @@ public class Node {
     public String getId() {return id;}
     public boolean[] getState() {return state;}
     public int getNodesCreated(){return nodesCreated;}
+    public int getTotalHeuristic() {return totalHeuristicCost;}
     
 }
