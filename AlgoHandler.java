@@ -43,7 +43,7 @@ public class AlgoHandler {
         int choice = 0; // we initialize this variable with one for the while to work
         while (choice < 1 || choice > 4) {
             System.out.println(
-                    "Please choose a Blind search algorithm: \n1) UCS (Uniform Cost Search)\n2) IDS (Iterative Deepening Search)\n3) BFS (Best-first search)\n4) A*");
+                    "Please choose an algorithm: \n1) UCS (Uniform Cost Search)\n2) IDS (Iterative Deepening Search)\n3) BFS (Best-first search)\n4) A*");
             choice = sc.nextInt();
             // We take the user's input and with a simple switch we select his choice
             switch (choice) {
