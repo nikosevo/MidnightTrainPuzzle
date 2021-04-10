@@ -1,3 +1,5 @@
+package MidnightTrain;
+
 //Nikos Tzekas Icsd18218
 //Chrysovalantis Pateiniotis Icsd18174
 public class MidnightTrain {

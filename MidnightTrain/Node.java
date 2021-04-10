@@ -1,3 +1,5 @@
+package MidnightTrain;
+
 import java.util.ArrayList;
 
 public class Node {
