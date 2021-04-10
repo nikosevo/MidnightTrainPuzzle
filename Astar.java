@@ -47,7 +47,7 @@ public class Astar
             } else
             {
                 //otherwise,since we already have the node with the minimum cost,we can safely say that the algorytm finished and found the most cost efficient way
-                algo.printOutput(node, "A*",visited);
+                algo.displayResults(node, "A*",visited);
                 return;
             }
         }

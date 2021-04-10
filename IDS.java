@@ -7,8 +7,8 @@ public class IDS
     int visited = 0;
     public IDS(AlgoHandler algo, LinkedList<Node> queue, boolean state[], int costs[], boolean Goal[])
     {   
-        int searchDepth = 0; //we initialize our searchDepth to zero to represent the root number
-        for (int j = 0; j <= searchDepth; j++, searchDepth++)
+        int deepness = 0; //we initialize our searchDepth to zero to represent the root number
+        for (int j = 0; j <= deepness; j++, deepness++)
         {
             //we create the root node and add it to our tree of seach
             queue.add(new Node("head",state,0,0,0,null,algo));
@@ -27,7 +27,7 @@ public class IDS
                 {
                     //we check if the depth is equal or less to the current search depth if it is we create a new child node
                     //because this means that we have reach out maximun number of nodes for this depth and we need to go deeper
-                    if (node.getDepth() <= searchDepth)
+                    if (node.getDepth() <= deepness)
                     {   
                         node.newChild(); 
                         // we get the subtree of the current node and we add the new node to it 
@@ -40,7 +40,7 @@ public class IDS
 
                 } else
                 {
-                    algo.printOutput(node, "IDS found a result in the search",visited);
+                    algo.displayResults(node, "IDS ",visited);
                     return;
                 }
             }

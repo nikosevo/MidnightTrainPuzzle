@@ -19,16 +19,8 @@ public class UCS
             Node node = null;   
             int minCost = Integer.MAX_VALUE;
             //we search the whole tree to find the path with the least cost
-            for (int i = 0; i < queue.size(); i++)  
-            {
-                if (queue.get(i).getTotalCost() < minCost)
-                {
-                    minCost = queue.get(i).getTotalCost();
-                    node = queue.get(i);
-                }
-            }
-            //this is used for testing 
-            //System.out.println("node " + node.getId() + " depth: " + node.getDepth());
+            node = search_the_least_cost(queue, node, minCost);
+            //we then remove it from the queue
             queue.remove(node);
             
             //if the current node is not our goal we expand the tree
@@ -42,10 +34,21 @@ public class UCS
                 }
             } else
             {
-                //otherwise,since we already have the node with the minimum cost,we can safely say that the algorytm finished and found the most cost efficient way
-                algo.printOutput(node, "UCS",visited);
+                //otherwise,since we already have the node with the minimum cost,we can safely say that the algorithm finished and found the most cost efficient way
+                algo.displayResults(node, "UCS",visited);
                 return;
             }
         }
+    }
+    private Node search_the_least_cost(LinkedList<Node> queue, Node node, int minCost) {
+        for (int i = 0; i < queue.size(); i++)  
+        {
+            if (queue.get(i).getTotalCost() < minCost)  //if the minimum cost of is more than the totalcost of the node at the queue we simply change that value to the min cost and we return that node
+            {
+                minCost = queue.get(i).getTotalCost();
+                node = queue.get(i);
+            }
+        }
+        return node;
     }
 }

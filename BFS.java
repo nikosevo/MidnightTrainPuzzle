@@ -47,7 +47,7 @@ public class BFS
             } else
             {
                 //otherwise,since we already have the node with the minimum cost,we can safely say that the algorytm finished and found the most cost efficient way
-                algo.printOutput(node, "bfs",visited);
+                algo.displayResults(node, "BFS",visited);
                 return;
             }
         }
